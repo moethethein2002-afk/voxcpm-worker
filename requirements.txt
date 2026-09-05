@@ -1,0 +1,7 @@
+runpod>=1.7.0
+torch==2.8.0
+torchaudio==2.8.0
+voxcpm>=2.0.2
+soundfile
+numpy==1.26.4
+scipy==1.13.1
