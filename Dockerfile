@@ -62,6 +62,7 @@ COPY handler.py /workspace/handler.py
 # Optional: bake the model into the image at build time so cold starts don't
 # need to hit Hugging Face. Comment out if you'd rather use a Network Volume
 # (mounted at /runpod-volume) or download on first request.
-# RUN python -c "from voxcpm import VoxCPM; VoxCPM.from_pretrained('openbmb/VoxCPM2', load_denoiser=False)"
+RUN python -c "from huggingface_hub import snapshot_download; snapshot_download('openbmb/VoxCPM2', local_dir='/models/VoxCPM2')"
+ENV VOXCPM_MODEL_DIR=/models/VoxCPM2
 
 CMD ["python", "-u", "/workspace/handler.py"]
